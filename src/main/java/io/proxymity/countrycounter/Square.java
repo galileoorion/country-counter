@@ -36,7 +36,7 @@ class Square {
         return row;
     }
 
-    public boolean isDiscovered() {
+    public boolean isUndiscovered() {
         return !discovered;
     }
 

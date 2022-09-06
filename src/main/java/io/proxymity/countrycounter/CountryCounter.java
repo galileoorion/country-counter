@@ -18,7 +18,7 @@ class CountryCounter {
 
     private void traverseMap(int row, int column) {
         Square square = getSquareAddToMapIfMissing(row, column);
-        if (square.isDiscovered()) {
+        if (square.isUndiscovered()) {
             map.setNumberOfCountries(map.getNumberOfCountries() + 1);
             System.out.printf("new country found: #%d%n", square.getCountry());
             visitSquare(square);
@@ -57,7 +57,7 @@ class CountryCounter {
                         neighbouringSquare = new Square(map.getA()[nextRow][nextColumn], nextRow, nextColumn);
                         map.getSquares()[nextRow][nextColumn] = neighbouringSquare;
                     }
-                    if (neighbouringSquare.isDiscovered() && neighbouringSquare.getCountry() == square.getCountry()) {
+                    if (neighbouringSquare.isUndiscovered() && neighbouringSquare.getCountry() == square.getCountry()) {
                         visitSquare(neighbouringSquare);
                     }
                 }
